@@ -1,0 +1,68 @@
+The file structure should be setup so that the working files are sectioned off and have a seperate folder for text documents like a user manual.
+This is useful to keep everything organized and clear for users of the applications and other developers.
+
+Github Repo: "https://github.com/Michael-Ward-Keyin/Advanced_Programming_Sprint_Solo"
+
+Build Process:
+Download files from Github
+Install java if not already installed
+Make sure the file structure is organized correctly
+Navigate to the proper directory through the terminal
+Compile the java files so you can run the proram
+Once the files are compiled run the Main.java file to test the program and give us the output.
+
+Development Standards:
+Proper development standards should be kept in mind when working on this project.
+Following naming structures and coding style of the work previously done on the file.
+All files should have proper JavaDoc usage throughout to streamline the development process.
+
+Database:
+
+Tables
+
+Patients
+    ID primary key int
+    first_name string
+    last_name string
+    age int
+    phone_number string
+    address string
+
+Doctors
+    ID primary key int
+    first_name string
+    last_name string
+    specialization string
+    phone_number string
+
+Medication
+    ID primary key int
+    name string
+    dose string
+    quantity int
+    expiry_date date
+
+Prescriptions
+    ID primary key int
+    doctor_ID foreign key references doctors ID
+    patient_ID foreign key references patient ID
+    medication_ID foreign key references medication ID
+    expiry_date date
+
+Entity relationships:
+
+Patient to doctor:
+    Many to Many as a patient can have multiple doctors and the other way around.
+    
+doctor to prescription:
+    One to Many as a doctor gives many prescriptions but each prescription has one doctor.
+
+patient to prescription:
+    One to Many as a patient can have many prescriptions but each prescription has one patient.
+
+medication to prescription:
+    One to Many as medication can be in many prescriptions but a prescription has only one medication.
+
+Getting to the code:
+
+To get access to the code you can use the above github link to clone the repository to begin working on the project.

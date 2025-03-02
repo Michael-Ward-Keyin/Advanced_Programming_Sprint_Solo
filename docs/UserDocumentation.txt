@@ -1,0 +1,13 @@
+Classes:
+
+1. Person: base for patient and doctor. Stores age name and phone number.
+
+2. Patient: Represents a patient and takes its information from person.
+
+3. Doctor: Represents a doctor and takes its information from person.
+
+4. Medication: Represents a medication has the ID, name, dose, quantity and expiry date.
+
+5. Prescription: Represents a prescription which has a doctor, a patient, a medication and a prescription expiry date.
+
+6. MedicationTrackingSystem: Manages all the setuup data from the other files allowing the user to add remove people, update medication quantity and generate reports for the system.

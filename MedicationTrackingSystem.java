@@ -1,14 +1,23 @@
+/**
+ *  Manages all the setuup data from the other files allowing the user to add remove people, update medication quantity and generate reports for the system.
+ */
+
+
 public class MedicationTrackingSystem {
-    private Patient[] patients;
-    private Doctor[] doctors;
-    private Medication[] medications;
-    private Prescription[] prescriptions;
+    private Patient[] patients; //List of patients
+    private Doctor[] doctors; //List of doctors
+    private Medication[] medications; //List of medications
+    private Prescription[] prescriptions; //List of prescriptions
 
     private int patientCount = 0;
     private int doctorCount = 0;
     private int medicationCount = 0;
     private int prescriptionCount = 0;
 
+    /**
+     * Creates the MedicationTrackingSystem object with a base capacity of ten
+     * 
+     */
     public MedicationTrackingSystem() {
         this.patients = new Patient[10];
         this.doctors = new Doctor[10];
@@ -16,7 +25,11 @@ public class MedicationTrackingSystem {
         this.prescriptions = new Prescription[10];
     }
 
-    // Add a patient
+    /**
+     * Adds a new patient
+     * 
+     * @param patient
+     */
     public void addPatient(Patient patient) {
         if (patientCount < patients.length) {
             patients[patientCount++] = patient;
@@ -25,7 +38,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Add a medication
+    /**
+     * Adds a medication
+     * 
+     * @param medication
+     */
     public void addMedication(Medication medication) {
         if (medicationCount < medications.length) {
             medications[medicationCount++] = medication;
@@ -34,7 +51,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Add a doctor
+    /**
+     * Adds a doctor
+     * 
+     * @param doctor
+     */
     public void addDoctor(Doctor doctor) {
         if (doctorCount < doctors.length) {
             doctors[doctorCount++] = doctor;
@@ -43,7 +64,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Delete a patient
+    /**
+     * Deletes a patient
+     * 
+     * @param id
+     */
     public void deletePatient(String id) {
         for (int i = 0; i < patientCount; i++) {
             if (patients[i].getFullName().contains(id)) {
@@ -57,7 +82,11 @@ public class MedicationTrackingSystem {
         System.out.println("Patient not found.");
     }
 
-    // Delete a medication
+    /**
+     * Deletes a medication
+     * 
+     * @param id
+     */
     public void deleteMedication(String id) {
         for (int i = 0; i < medicationCount; i++) {
             if (medications[i].getId().contains(id)) {
@@ -71,7 +100,11 @@ public class MedicationTrackingSystem {
         System.out.println("Medication not found.");
     }
 
-    // Delete a doctor
+    /**
+     * Deletes a doctor
+     * 
+     * @param id
+     */
     public void deleteDoctor(String id) {
         for (int i = 0; i < doctorCount; i++) {
             if (doctors[i].getFullName().contains(id)) {
@@ -85,7 +118,14 @@ public class MedicationTrackingSystem {
         System.out.println("Doctor not found.");
     }
 
-    // Edit a patient
+    /**
+     * Edits a patients details
+     * 
+     * @param id
+     * @param name
+     * @param age
+     * @param phoneNumber
+     */
     public void editPatient(String id, String name, int age, String phoneNumber) {
         for (int i = 0; i < patientCount; i++) {
             if (patients[i].getFullName().contains(id)) {
@@ -99,7 +139,14 @@ public class MedicationTrackingSystem {
         System.out.println("Patient not found.");
     }
 
-    // Edit a medication
+    /**
+     * Edits a medications details
+     * 
+     * @param id
+     * @param name
+     * @param dose
+     * @param quantityInStock
+     */
     public void editMedication(String id, String name, String dose, int quantityInStock) {
         for (int i = 0; i < medicationCount; i++) {
             if (medications[i].getId().contains(id)) {
@@ -113,7 +160,15 @@ public class MedicationTrackingSystem {
         System.out.println("Medication not found.");
     }
 
-    // Edit a doctor
+    /**
+     * Edits a doctors details
+     * 
+     * @param id
+     * @param name
+     * @param age
+     * @param phoneNumber
+     * @param specialization
+     */
     public void editDoctor(String id, String name, int age, String phoneNumber, String specialization) {
         for (int i = 0; i < doctorCount; i++) {
             if (doctors[i].getFullName().contains(id)) {
@@ -128,7 +183,11 @@ public class MedicationTrackingSystem {
         System.out.println("Doctor not found.");
     }
 
-    // Search for a patient
+    /**
+     * Searchs for a patient
+     * 
+     * @param name
+     */
     public void searchPatientByName(String name) {
         for (int i = 0; i < patientCount; i++) {
             if (patients[i].getFullName().contains(name)) {
@@ -137,7 +196,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Search for a medication
+    /**
+     * Searchs for a medication
+     * 
+     * @param name
+     */
     public void searchMedicationByName(String name) {
         for (int i = 0; i < medicationCount; i++) {
             if (medications[i].getName().contains(name)) {
@@ -146,7 +209,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Search for a doctor
+    /**
+     * Searchs for a doctor
+     * 
+     * @param name
+     */
     public void searchDoctorByName(String name) {
         for (int i = 0; i < doctorCount; i++) {
             if (doctors[i].getFullName().contains(name)) {
@@ -155,13 +222,22 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Accept a prescription
+    /**
+     * Takes a prescription
+     * 
+     * @param prescription
+     */
     public void acceptPrescription(Prescription prescription) {
         prescriptions[prescriptionCount++] = prescription;
         System.out.println("Prescription for " + prescription.getPatient().getFullName() + " has been added.");
     }
 
-    // Add a patient to a doctor list
+    /**
+     * Adds a patient to a doctors list
+     * 
+     * @param doctorName
+     * @param patient
+     */
     public void addPatientToDoctor(String doctorName, Patient patient) {
         for (int i = 0; i < doctorCount; i++) {
             if (doctors[i].getFullName().contains(doctorName)) {
@@ -173,7 +249,10 @@ public class MedicationTrackingSystem {
         System.out.println("Doctor not found.");
     }
 
-    // Generate a report containing all data
+    /**
+     * Generates a report containing all the data
+     * 
+     */
     public void generateReport() {
         System.out.println("Medication Report:");
         for (int i = 0; i < medicationCount; i++) {
@@ -196,7 +275,10 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Check for expired medications
+    /**
+     * Checks for expired medications
+     * 
+     */
     public void checkExpiredMedications() {
         long currentTime = System.currentTimeMillis();
         boolean expiredFound = false;
@@ -211,7 +293,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Print a list of prescriptions for a doctor
+    /**
+     * Prints a list of prescriptions for a doctor
+     * 
+     * @param doctorName
+     */
     public void printPrescriptionsByDoctor(String doctorName) {
         System.out.println("Prescriptions by Dr. " + doctorName + ":");
         for (int i = 0; i < prescriptionCount; i++) {
@@ -221,7 +307,11 @@ public class MedicationTrackingSystem {
         }
     }
 
-    // Restock all medications
+    /**
+     * Restocks a medication by a set quantity
+     * 
+     * @param quantity
+     */
     public void restockMedications(int quantity) {
         for (int i = 0; i < medicationCount; i++) {
             medications[i].setQuantityInStock(medications[i].getQuantityInStock() + quantity);

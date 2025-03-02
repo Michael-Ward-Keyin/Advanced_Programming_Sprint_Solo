@@ -1,3 +1,7 @@
+/**
+ * This file creates placeholder information and uses it to show the functionality of the other files
+ * 
+ */
 public class Main {
     public static void main(String[] args) {
         MedicationTrackingSystem system = new MedicationTrackingSystem();

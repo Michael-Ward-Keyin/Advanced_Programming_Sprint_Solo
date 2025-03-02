@@ -1,0 +1,12 @@
+This document tells how to install and run the software.
+
+Github Repository: "https://github.com/Michael-Ward-Keyin/Advanced_Programming_Sprint_Solo"
+
+Ensuring Java is downloaded on your system is key as the system cannot run without java.
+If you do not have java installed make sure you install it before trying to run the program.
+
+Now you will want to clone the github repository from the link above.
+
+Once this is done you will want to compile the code using the javac command
+
+Once you have done this you can run the code by running the command "java Main" which calls the main program to run the system.
